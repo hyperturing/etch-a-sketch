@@ -13,4 +13,14 @@ Release 1.0.0 / Oct 3, 2019:
 
 - Color randomization added using HSL colors
 
+Release 1.0.1 / Oct 4, 2019:
+==============================
+- Added buttons to toggle between mono-color / rainbow drawing modes
+
+- Centered and resized buttons and adjusted margins and paddings
+
+- Added static SVG background image
+
+- Removed unncessary CSS styling
+
  
