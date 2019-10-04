@@ -1,9 +1,18 @@
 // Javascript file for etch-a-sketch project
 
 //==========FUNCTIONS========================
-function changeCellColor(event){
+function rainbowCellColor(event){
     if (event.target.matches('.cell-item')) {
         event.target.style.backgroundColor = randomColor(HSLLightness);
+        HSLLightness-=10;
+
+        if (HSLLightness <=0) HSLLightness = 100;
+	}
+}
+
+function drawCellColor(event){
+    if (event.target.matches('.cell-item')) {
+        event.target.style.backgroundColor = 'hsl(195, 100%, 65%)';
         HSLLightness-=10;
 
         if (HSLLightness <=0) HSLLightness = 100;
@@ -57,7 +66,7 @@ function createGrid(dimension = 16){
 
 function clearGrid(){
     // Remove the grid
-    document.querySelector('div').remove();
+    document.getElementById('container').remove();
 
     body = document.querySelector('body');
 
@@ -68,25 +77,35 @@ function clearGrid(){
 
     return newgrid;
 }
+
 //============================================
 
-
-
 //==========MAIN==============================
-//let colorList = ['Purple', 'Green', 'Blue', 'Red', 'Orange', 'Yellow'];
 let HSLLightness = 100;
 
 //Create a 16x16 grid of square divs
-grid = document.querySelector('div');
+grid = document.getElementById('container');
 createGrid();
 
-// Event listener that allows us to 'draw' in the grid
-document.addEventListener('mouseover', changeCellColor, false);
-
-// Event listener that clears the grid
-let button = document.querySelector('#clear-button');
-
-button.addEventListener('click', function(e){
+// Event listener that creates a new grid
+let createGridButton = document.getElementById('create-button');
+createGridButton.addEventListener('click', function(e){
     dimension = prompt("How wide shall we make your etch-a-sketch?");
     createGrid(dimension);
   })
+
+// Event listener that clears the grid
+let clearGridButton = document.getElementById('clear-button');
+clearGridButton.addEventListener('click', function(e){
+    createGrid();
+});
+
+let prideButton = document.getElementById("pride-button");
+prideButton.addEventListener('click', function(e) {
+    document.addEventListener('mouseover', rainbowCellColor, false);
+});
+
+let drawButton = document.getElementById("draw-button");
+drawButton.addEventListener('click', function(e) {
+    document.addEventListener('mouseover', drawCellColor, false);
+});
