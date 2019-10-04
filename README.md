@@ -5,5 +5,12 @@ This is an Odin Project assignment that uses Javascript's DOM methods to create 
 
 Intended to demonstrated DOM manipulation, CSS, Javascript, and HTML knowledge
 
-More details to come
+Release 1.0.0 / Oct 3, 2019:
+==============================
+- Loads a 16x16 grid of cells that can be 'drawn' upon by hovering the mouse over the cells
+
+- A 'Clear Grid' button resets the etch-a-sketch and provides the option of resizing the grid
+
+- Color randomization added using HSL colors
+
  
